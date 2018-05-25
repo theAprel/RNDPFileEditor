@@ -1,0 +1,15 @@
+1 byte: unsigned version number of Pokemon Randomizer used to create the file
+
+Followed by a DataStream:
+readLong(): seed
+readUTF8(): "config string"; base64-encoded name of the rom
+
+Followed by the custom names:
+1 byte: == 1 (another version number, for the custom-name set)
+blocks of names:
+    trainerNames
+    trainerClasses
+    doublesTrainerNames
+    doublesTrainerClasses
+    pokemonNicknames
+These blocks have their own reader function. Consult CustomNameSet for how to read them.
